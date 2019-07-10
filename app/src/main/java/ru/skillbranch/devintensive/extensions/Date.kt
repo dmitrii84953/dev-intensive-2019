@@ -27,8 +27,7 @@ fun Date.add(value:Int, units: TimeUnits = TimeUnits.SECOND): Date{
 }
 
 fun Date.humanizeDiff(humdate: Date = Date()): String{
-    val diff: Int
-    diff = ((humdate.time - this.time) / 1000).toInt()
+    val diff: Int = ((humdate.time - this.time) / 1000).toInt()
     return when (diff){
         in 0..1 -> "только что"
         in 2 until 45 -> "несколько секунд назад"
