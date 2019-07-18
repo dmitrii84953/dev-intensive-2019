@@ -16,7 +16,7 @@ class Bender(var status:Status = Status.NORMAL, var question: Question = Questio
                 if (question != Question.IDLE) {
                     question = question.nextQuestion()
                     "Отлично - ты справился\n${question.question}" to status.color}  //Отлично - это правильный ответ!
-                else "Отлично - ты справился\nНа этом всё, вопросов больше нет" to status.color
+                else "Отлично - ты справился\nНа этом все, вопросов больше нет" to status.color
         }
         else if (status != Status.CRITICAL) {
                 status = status.nextStatus()
@@ -58,7 +58,7 @@ class Bender(var status:Status = Status.NORMAL, var question: Question = Questio
         SERIAL("Мой серийный номер?", listOf("2716057")){
             override fun nextQuestion(): Question = IDLE
         },
-        IDLE("На этом всё, вопросов больше нет", listOf()){
+        IDLE("На этом все, вопросов больше нет", listOf()){
             override fun nextQuestion(): Question = IDLE
         };
 
