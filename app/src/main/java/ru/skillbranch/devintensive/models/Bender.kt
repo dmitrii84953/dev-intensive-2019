@@ -13,17 +13,17 @@ class Bender(var status:Status = Status.NORMAL, var question: Question = Questio
 
     fun listenAnswer(answer: String): Pair<String, Triple<Int, Int, Int>>{
         return if (question.answers.contains(answer)) {
+
                 question = question.nextQuestion()
-                "Отлично - ты справился\n${question.question}" to status.color
+                "Отлично - ты справился\n${question.question}" to status.color  //Отлично - это правильный ответ!
+                
         }
         else if (status != Status.CRITICAL) {
-            status = status.nextStatus()
-            "Это неправильный ответ\n${question.question}" to status.color
-            }
-            else {
                 status = status.nextStatus()
-                "Это неправильный ответ. Давай все по новой\n${question.question}" to status.color
-            }
+                "Это неправильный ответ\n${question.question}" to status.color
+                }
+            else { status = status.nextStatus()
+                "Это неправильный ответ. Давай все по новой\n${question.question}" to status.color  }
 
     }
 
